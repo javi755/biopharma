@@ -1,0 +1,117 @@
+unique_name: Supply_Chain_OTD
+object_type: model
+label: Supply Chain OTD
+relationships:
+  - unique_name: Shipment to Date
+    from:
+      dataset: FACT_DOSE_SHIPMENT
+      join_columns:
+        - WEEK_DATE_KEY
+    to:
+      dimension: Date
+      level: Day
+  - unique_name: Shipment to Site
+    from:
+      dataset: FACT_DOSE_SHIPMENT
+      join_columns:
+        - SITE_ID
+    to:
+      dimension: Clinical Site
+      level: Site
+  - unique_name: Shipment to Program
+    from:
+      dataset: FACT_DOSE_SHIPMENT
+      join_columns:
+        - PROGRAM_ID
+    to:
+      dimension: Program
+      level: Program
+  - unique_name: Shipment to Counterparty
+    from:
+      dataset: FACT_DOSE_SHIPMENT
+      join_columns:
+        - COUNTERPARTY_ID
+    to:
+      dimension: Counterparty
+      level: Counterparty
+  - unique_name: Batch to Date
+    from:
+      dataset: FACT_MANUFACTURING_BATCH
+      join_columns:
+        - SCHEDULED_START_DATE_KEY
+    to:
+      dimension: Date
+      level: Day
+  - unique_name: Batch to Program
+    from:
+      dataset: FACT_MANUFACTURING_BATCH
+      join_columns:
+        - PROGRAM_ID
+    to:
+      dimension: Program
+      level: Program
+  - unique_name: Batch to Counterparty
+    from:
+      dataset: FACT_MANUFACTURING_BATCH
+      join_columns:
+        - COUNTERPARTY_ID
+    to:
+      dimension: Counterparty
+      level: Counterparty
+  - unique_name: Lot to Date
+    from:
+      dataset: FACT_RAW_MATERIAL_LOT
+      join_columns:
+        - RECEIPT_DATE_KEY
+    to:
+      dimension: Date
+      level: Day
+  - unique_name: Lot to Program
+    from:
+      dataset: FACT_RAW_MATERIAL_LOT
+      join_columns:
+        - PROGRAM_ID
+    to:
+      dimension: Program
+      level: Program
+  - unique_name: Lot to Material
+    from:
+      dataset: FACT_RAW_MATERIAL_LOT
+      join_columns:
+        - MATERIAL_ID
+    to:
+      dimension: Material
+      level: Material
+  - unique_name: Lot to Supplier
+    from:
+      dataset: FACT_RAW_MATERIAL_LOT
+      join_columns:
+        - SUPPLIER_COUNTERPARTY_ID
+    to:
+      dimension: Counterparty
+      level: Counterparty
+metrics:
+  - unique_name: Shipments
+  - unique_name: Doses_Shipped
+  - unique_name: Doses_Administered
+  - unique_name: Temperature_Excursions
+  - unique_name: Doses_Lost_To_Excursion
+  - unique_name: Avg_Shipment_Lead_Time_Days
+  - unique_name: Batches
+  - unique_name: Planned_Doses
+  - unique_name: Doses_Produced
+  - unique_name: Released_Doses
+  - unique_name: Output_Grams
+  - unique_name: Released_Grams
+  - unique_name: Avg_Slip_Days
+  - unique_name: Avg_Start_Delay_Days
+  - unique_name: Avg_Yield_Pct
+  - unique_name: Quantity_Received
+  - unique_name: Lot_Cost_USD
+  - unique_name: Quantity_On_Hand
+  - unique_name: Doses_Capacity_On_Hand
+  - unique_name: Avg_Material_Lead_Time_Days
+  - unique_name: Dose_Administration_Rate_Pct
+  - unique_name: Excursion_Loss_Rate_Pct
+  - unique_name: Batch_Release_Rate_Pct
+  - unique_name: Dose_Production_Attainment_Pct

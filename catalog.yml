@@ -1,0 +1,6 @@
+unique_name: supply_chain_otd_catalog
+object_type: catalog
+label: supply_chain_otd
+version: 1.7
+aggressive_agg_promotion: false
+build_speculative_aggs: false
